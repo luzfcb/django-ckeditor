@@ -15,6 +15,8 @@ env:
     - TOX_ENV=py27-coverage-report
     - TOX_ENV=py27-lint
     - TOX_ENV=py27-isort
+  global:
+    - DISPLAY=:99.0
 
 matrix:
     fast_finish: true
@@ -30,7 +32,8 @@ script:
 
 before_install:
     - pip install codecov
-    - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
+    - "/sbin/start-stop-daemon --start --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x24"
+    - sleep 3 # give xvfb some time to start
 
 after_success:
     - codecov
