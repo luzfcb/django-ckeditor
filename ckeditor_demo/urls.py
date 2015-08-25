@@ -1,14 +1,13 @@
-import django
+from __future__ import absolute_import
 
+import django
+from django.conf import settings
 from django.conf.urls import include, url
 from django.conf.urls.static import static
-from django.conf import settings
-from django.contrib.staticfiles import views
 from django.contrib import admin
+from django.contrib.staticfiles import views
 
-from ckeditor_demo.demo_application.views import ckeditor_form_view
-
-
+from .demo_application.views import ckeditor_form_view
 
 if django.VERSION >= (1, 8):
     urlpatterns = [
@@ -30,4 +29,3 @@ else:
     )
 
 urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
