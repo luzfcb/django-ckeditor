@@ -15,8 +15,8 @@ env:
     - TOX_ENV=py27-coverage-report
     - TOX_ENV=py27-lint
     - TOX_ENV=py27-isort
-  global:
-    - DISPLAY=:99.0
+    global:
+        - DISPLAY=:99.0
 
 matrix:
     fast_finish: true
