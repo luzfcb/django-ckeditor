@@ -5,6 +5,8 @@ language: python
 sudo: false
 
 env:
+    global:
+        - DISPLAY=:99.0
     - TOX_ENV=py27-coverage-init
     - TOX_ENV=py27-django17
     - TOX_ENV=py27-django18
@@ -15,8 +17,8 @@ env:
     - TOX_ENV=py27-coverage-report
     - TOX_ENV=py27-lint
     - TOX_ENV=py27-isort
-    global:
-        - DISPLAY=:99.0
+    
+
 
 matrix:
     fast_finish: true
